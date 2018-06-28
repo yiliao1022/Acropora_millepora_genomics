@@ -1,3 +1,5 @@
-awk '{sub(/^[ \t]+/,);print -bash}' out1 >out2
+awk awk '{sub(/^[ \t]+/,"");print $0}' out1 >out2
+
 perl Count_transcripts_mapping.pl ../../GeneAnnotation/transcript/Amillepora_Nocomment_2.fa.chrlist ../../GeneAnnotation/round1/maker/Amil_rn1.maker.output/Amil_rnd1.all.maker.est2genome.gff > out
+
 cat out | awk '>0.8' | sort -k1,1 | cut -f1 | uniq -c | cut -f1 > out1
